@@ -1,0 +1,6 @@
+C:\Users\tomt\Google Drive\Intec Opleiding .NET\MVC\Tom_Tilley_TestMVC\BOL\bin\Debug\BOL.dll
+C:\Users\tomt\Google Drive\Intec Opleiding .NET\MVC\Tom_Tilley_TestMVC\BOL\bin\Debug\BOL.pdb
+C:\Users\tomt\Google Drive\Intec Opleiding .NET\MVC\Tom_Tilley_TestMVC\BOL\obj\Debug\BOL.csproj.CoreCompileInputs.cache
+C:\Users\tomt\Google Drive\Intec Opleiding .NET\MVC\Tom_Tilley_TestMVC\BOL\obj\Debug\BOL.dll
+C:\Users\tomt\Google Drive\Intec Opleiding .NET\MVC\Tom_Tilley_TestMVC\BOL\obj\Debug\BOL.pdb
+C:\Users\tomt\Google Drive\Intec Opleiding .NET\MVC\Tom_Tilley_TestMVC\BOL\obj\Debug\BOL.csprojResolveAssemblyReference.cache

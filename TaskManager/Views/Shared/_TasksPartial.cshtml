@@ -1,0 +1,52 @@
+﻿@model IEnumerable<BOL.Task>
+
+@if (Model.Any())
+{
+    switch (Model.ToList()[0].TaskStatusId)
+    {
+        case 1:
+            ViewBag.Color = "alert-info";
+            break;
+        case 2:
+            ViewBag.Color = "alert-warning";
+            break;
+        case 3:
+            ViewBag.Color = "alert-success";
+            break;
+        default:
+            break;
+    }
+}
+
+@foreach (var item in Model)
+{
+    <div class="alert @ViewBag.Color alert-dismissible">
+        <button id="@item.Id" class="close">&times;</button>
+        <strong>@item.Title</strong><br />@item.Description<br />
+        @if (item.TaskStatusId == 1)
+        {
+            // <a href="~/Home/MoveTask/@item.Id?newStatus=2" class="pijlrechts"><i class="fas fa-angle-double-right"></i></a>
+            <span class="small">@Html.ActionLink("Check this task out", "MoveTask", "Task", new { id = item.Id, newStatus = 2 }, null)</span>
+        }
+        else if (item.TaskStatusId == 2)
+        {
+            if(item.UserId == (int)ViewBag.UserId)
+            {
+                <span class="small">
+                    @Html.ActionLink("Complete this task", "MoveTask", "Task", new { id = item.Id, newStatus = 3 }, null)<br />
+                    @Html.ActionLink("Place this task back", "MoveTask", "Task", new { id = item.Id, newStatus = 1 }, null)
+                </span>
+            }
+            else
+            {
+                <span class="small">Checked out by @item.User.Name</span>
+            }
+        }
+        else
+        {
+            <span class="small">Completed by @item.User.Name</span>
+        }
+
+    </div>
+   
+}

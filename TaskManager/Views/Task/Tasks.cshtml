@@ -1,0 +1,51 @@
+﻿@model TaskManager.ViewModels.TasksViewModel
+
+@{
+    ViewBag.Title = "Tasks";
+    ViewBag.UserName = ((BOL.User)Session["User"]).Name;
+    ViewBag.UserId = ((BOL.User)Session["User"]).Id;
+    ViewBag.Color = "";
+
+}
+
+<h3>Welcome @ViewBag.UserName</h3>
+
+<div class="row pt-4">
+    @foreach (var item in Model.TaskStatuses)
+    {
+        <div class="col-sm-4">
+            <section class="card border-primary">
+                <div class="card-header">
+                    <h3>@item.Name</h3>
+                </div>
+                <div class="card-body bg-light">
+                    @Html.Partial("_TasksPartial", item.Tasks)
+                </div>
+            </section>
+
+        </div>
+    }
+</div>
+
+<div class="row pt-5">
+    <div class="col-sm-4">
+        <h4>Add new task:</h4>
+
+        @using (Html.BeginForm("NewTask", "Task"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(m => m.Task.Title, "Title:")
+                @Html.TextBoxFor(m => m.Task.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Task.Title)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Task.Description, "Description:")
+                @Html.TextAreaFor(m => m.Task.Description, 3, 40, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Task.Description)
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Add Task</button>
+        }
+    </div>
+</div>
+
